@@ -85,7 +85,7 @@ class SimplePluginRegistryUnitTest {
 	void throwsExceptionIfNoPluginFound() {
 
 		assertThatIllegalArgumentException()
-				.isThrownBy(() -> registry.getPluginFor("BAR", () -> new IllegalArgumentException()));
+				.isThrownBy(() -> registry.getPluginFor("BAR", IllegalArgumentException::new));
 	}
 
 	/**
@@ -95,7 +95,7 @@ class SimplePluginRegistryUnitTest {
 	void throwsExceptionIfNoPluginsFound() {
 
 		assertThatIllegalArgumentException()
-				.isThrownBy(() -> registry.getPluginsFor("BAR", () -> new IllegalArgumentException()));
+				.isThrownBy(() -> registry.getPluginsFor("BAR", IllegalArgumentException::new));
 	}
 
 	/**
@@ -124,7 +124,7 @@ class SimplePluginRegistryUnitTest {
 	@Test
 	void handlesAddingNullPluginsCorrecty() throws Exception {
 
-		List<SamplePlugin> plugins = new ArrayList<SamplePlugin>();
+		List<SamplePlugin> plugins = new ArrayList<>();
 		plugins.add(null);
 
 		registry = SimplePluginRegistry.of(plugins);
@@ -138,7 +138,7 @@ class SimplePluginRegistryUnitTest {
 		registry = SimplePluginRegistry.empty();
 
 		assertThatIllegalStateException()
-				.isThrownBy(() -> registry.getPluginFor("FOO", () -> new IllegalStateException()));
+				.isThrownBy(() -> registry.getPluginFor("FOO", IllegalStateException::new));
 	}
 
 	@Test // #41
