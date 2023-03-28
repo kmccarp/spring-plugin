@@ -141,7 +141,7 @@ public abstract class AbstractTypeAwareSupport<T>
 		private final boolean eagerInit;
 		private final Collection<Class<?>> exclusions;
 
-		private boolean frozen = false;
+		private boolean frozen;
 		private @Nullable Collection<Object> components;
 
 		/**
@@ -221,7 +221,7 @@ public abstract class AbstractTypeAwareSupport<T>
 
 			return Arrays.stream(context.getBeanNamesForType(type, false, eagerInit)) //
 					.filter(it -> !exceptions.contains(context.getType(it))) //
-					.map(it -> context.getBean(it)) //
+					.map(context::getBean) //
 					.collect(Collectors.toList());
 		}
 	}
