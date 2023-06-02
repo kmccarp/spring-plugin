@@ -61,7 +61,7 @@ public class PluginListDefinitionParser extends AbstractBeanDefinitionParser {
 	 * @return
 	 */
 	private AbstractBeanDefinition getSourcedBeanDefinition(BeanDefinitionBuilder builder, Object source,
-			ParserContext context) {
+ParserContext context) {
 
 		AbstractBeanDefinition definition = builder.getRawBeanDefinition();
 		definition.setSource(context.extractSource(source));

@@ -89,7 +89,7 @@ public interface PluginRegistry<T extends Plugin<S>, S> extends Iterable<T> {
 	 * @since 2.0
 	 */
 	public static <S, T extends Plugin<S>> PluginRegistry<T, S> of(List<? extends T> plugins,
-			Comparator<? super T> comparator) {
+Comparator<? super T> comparator) {
 
 		Assert.notNull(plugins, "Plugins must not be null!");
 		Assert.notNull(comparator, "Comparator must not be null!");

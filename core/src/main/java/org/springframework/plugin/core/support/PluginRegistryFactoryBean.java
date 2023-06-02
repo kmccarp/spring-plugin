@@ -26,8 +26,7 @@ import org.springframework.plugin.core.PluginRegistry;
  *
  * @author Oliver Gierke
  */
-public class PluginRegistryFactoryBean<T extends Plugin<S>, S> extends AbstractTypeAwareSupport<T>
-		implements FactoryBean<PluginRegistry<T, S>> {
+public class PluginRegistryFactoryBean<T extends Plugin<S>, S> extends AbstractTypeAwareSupport<T>implements FactoryBean<PluginRegistry<T, S>> {
 
 	/*
 	 * (non-Javadoc)

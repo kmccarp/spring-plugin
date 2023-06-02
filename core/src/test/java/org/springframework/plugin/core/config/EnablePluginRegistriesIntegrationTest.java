@@ -40,7 +40,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 class EnablePluginRegistriesIntegrationTest {
 
 	@Configuration
-	@EnablePluginRegistries({ SamplePlugin.class, AnotherPlugin.class })
+	@EnablePluginRegistries({SamplePlugin.class, AnotherPlugin.class})
 	static class Config {
 
 		@Bean
@@ -49,7 +49,8 @@ class EnablePluginRegistriesIntegrationTest {
 		}
 	}
 
-	@Autowired PluginRegistry<SamplePlugin, String> registry;
+	@Autowired
+	PluginRegistry<SamplePlugin, String> registry;
 
 	@Test
 	void registersPluginRegistries() {
@@ -57,7 +58,8 @@ class EnablePluginRegistriesIntegrationTest {
 	}
 
 	@Qualifier("myQualifier")
-	interface AnotherPlugin extends Plugin<String> {}
+	interface AnotherPlugin extends Plugin<String> {
+	}
 
 	static class AnotherSamplePluginImplementation implements AnotherPlugin {
 

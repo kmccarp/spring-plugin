@@ -75,7 +75,7 @@ class OrderAwarePluginRegistryUnitTest extends SimplePluginRegistryUnitTest {
 		TestPlugin thirdPlugin = (TestPlugin) new ProxyFactory(plugin).getProxy();
 
 		OrderAwarePluginRegistry<TestPlugin, String> registry = OrderAwarePluginRegistry.of(firstPlugin, secondPlugin,
-				thirdPlugin);
+	thirdPlugin);
 
 		assertOrder(registry, secondPlugin, thirdPlugin, firstPlugin);
 		assertOrder(registry.reverse(), firstPlugin, thirdPlugin, secondPlugin);
@@ -90,7 +90,7 @@ class OrderAwarePluginRegistryUnitTest extends SimplePluginRegistryUnitTest {
 	void defaultSetupUsesDefaultReverseComparator() {
 
 		OrderAwarePluginRegistry<Plugin<Object>, Object> registry = OrderAwarePluginRegistry
-				.ofReverse(Collections.emptyList());
+	.ofReverse(Collections.emptyList());
 		Object field = ReflectionTestUtils.getField(registry, "comparator");
 
 		assertThat(field).isEqualTo(ReflectionTestUtils.getField(registry, "DEFAULT_REVERSE_COMPARATOR"));

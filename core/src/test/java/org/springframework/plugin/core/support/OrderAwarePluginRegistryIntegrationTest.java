@@ -47,13 +47,18 @@ class OrderAwarePluginRegistryIntegrationTest {
 		}
 	}
 
-	@Autowired ApplicationContext context;
+	@Autowired
+	ApplicationContext context;
 
-	@Autowired FirstImplementation first;
-	@Autowired SecondImplementation second;
-	@Autowired ThirdImplementation third;
+	@Autowired
+	FirstImplementation first;
+	@Autowired
+	SecondImplementation second;
+	@Autowired
+	ThirdImplementation third;
 
-	@Autowired OrderAwarePluginRegistry<TestPlugin, String> registry;
+	@Autowired
+	OrderAwarePluginRegistry<TestPlugin, String> registry;
 
 	@Test
 	void considersJdkProxiedOrderedImplementation() {

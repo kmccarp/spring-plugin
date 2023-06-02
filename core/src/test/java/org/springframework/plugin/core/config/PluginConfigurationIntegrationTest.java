@@ -38,15 +38,23 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(locations = "classpath:application-context.xml")
 class PluginConfigurationIntegrationTest {
 
-	@Autowired List<SamplePlugin> samplePlugins;
+	@Autowired
+	List<SamplePlugin> samplePlugins;
 
-	@Autowired @Qualifier("bar") PluginRegistry<SamplePlugin, String> pluginRegistry;
+	@Autowired
+	@Qualifier("bar")
+	PluginRegistry<SamplePlugin, String> pluginRegistry;
 
-	@Autowired @Qualifier("host") SamplePluginHost host;
+	@Autowired
+	@Qualifier("host")
+	SamplePluginHost host;
 
-	@Autowired @Qualifier("otherHost") SamplePluginHost otherHost;
+	@Autowired
+	@Qualifier("otherHost")
+	SamplePluginHost otherHost;
 
-	@Autowired SamplePlugin plugin;
+	@Autowired
+	SamplePlugin plugin;
 
 	@Test
 	void test() throws Exception {

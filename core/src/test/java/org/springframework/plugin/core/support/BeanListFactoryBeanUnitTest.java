@@ -39,7 +39,8 @@ class BeanListFactoryBeanUnitTest {
 
 	BeanListFactoryBean<Ordered> factory;
 
-	@Mock ApplicationContext context;
+	@Mock
+	ApplicationContext context;
 
 	@BeforeEach
 	void setUp() {
@@ -51,14 +52,14 @@ class BeanListFactoryBeanUnitTest {
 	}
 
 	@Test
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({"rawtypes", "unchecked"})
 	void regardsOrderOfBeans() throws Exception {
 
 		// They shall be switched in the result.
 		Ordered first = () -> 5;
 		Ordered second = () -> 0;
 
-		when(context.getBeanNamesForType(Ordered.class, false, false)).thenReturn(new String[] { "first", "second" });
+		when(context.getBeanNamesForType(Ordered.class, false, false)).thenReturn(new String[]{"first", "second"});
 		when(context.getType(any(String.class))).thenReturn((Class) Ordered.class);
 		when(context.getBean("first")).thenReturn(first);
 		when(context.getBean("second")).thenReturn(second);

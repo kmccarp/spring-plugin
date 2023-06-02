@@ -52,7 +52,7 @@ public class PluginRegistriesBeanDefinitionRegistrar implements ImportBeanDefini
 	public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
 
 		Map<String, Object> annotationAttributes = importingClassMetadata
-				.getAnnotationAttributes(EnablePluginRegistries.class.getName());
+	.getAnnotationAttributes(EnablePluginRegistries.class.getName());
 
 		if (annotationAttributes == null) {
 			LOG.info("No EnablePluginRegistries annotation found on type {}!", importingClassMetadata.getClassName());
@@ -79,8 +79,8 @@ public class PluginRegistriesBeanDefinitionRegistrar implements ImportBeanDefini
 
 			// Default
 			String beanName = annotation == null //
-					? StringUtils.uncapitalize(type.getSimpleName() + "Registry") //
-					: annotation.value();
+		? StringUtils.uncapitalize(type.getSimpleName() + "Registry") //
+		: annotation.value();
 
 			registry.registerBeanDefinition(beanName, beanDefinition);
 		}

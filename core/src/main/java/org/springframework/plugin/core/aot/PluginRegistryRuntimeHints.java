@@ -41,6 +41,6 @@ class PluginRegistryRuntimeHints implements RuntimeHintsRegistrar {
 	public void registerHints(RuntimeHints hints, ClassLoader classLoader) {
 
 		hints.proxies() //
-				.registerJdkProxy(List.class, SpringProxy.class, Advised.class, DecoratingProxy.class);
+	.registerJdkProxy(List.class, SpringProxy.class, Advised.class, DecoratingProxy.class);
 	}
 }

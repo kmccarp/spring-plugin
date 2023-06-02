@@ -41,8 +41,7 @@ import org.springframework.util.Assert;
  *
  * @author Oliver Gierke
  */
-public abstract class AbstractTypeAwareSupport<T>
-		implements ApplicationContextAware, ApplicationListener<ContextRefreshedEvent>, InitializingBean {
+public abstract class AbstractTypeAwareSupport<T>implements ApplicationContextAware, ApplicationListener<ContextRefreshedEvent>, InitializingBean {
 
 	private @Nullable ApplicationContext context;
 	private @Nullable Class<T> type;
@@ -154,7 +153,7 @@ public abstract class AbstractTypeAwareSupport<T>
 		 * @param exclusions which types to exclude from the lookup, must not be {@literal null}.
 		 */
 		public BeansOfTypeTargetSource(ListableBeanFactory context, Class<?> type, boolean eagerInit,
-				Collection<Class<?>> exclusions) {
+	Collection<Class<?>> exclusions) {
 
 			Assert.notNull(context, "ListableBeanFactory must not be null!");
 			Assert.notNull(type, "Type must not be null!");
@@ -197,12 +196,12 @@ public abstract class AbstractTypeAwareSupport<T>
 		 * @see org.springframework.aop.TargetSource#getTarget()
 		 */
 		@NonNull
-		@SuppressWarnings({ "rawtypes", "unchecked" })
+		@SuppressWarnings({"rawtypes", "unchecked"})
 		public synchronized Object getTarget() throws Exception {
 
 			Collection<Object> components = this.components == null //
-					? getBeansOfTypeExcept(type, exclusions) //
-					: this.components;
+		? getBeansOfTypeExcept(type, exclusions) //
+		: this.components;
 
 			if (frozen && this.components == null) {
 				this.components = components;
@@ -215,14 +214,15 @@ public abstract class AbstractTypeAwareSupport<T>
 		 * (non-Javadoc)
 		 * @see org.springframework.aop.TargetSource#releaseTarget(java.lang.Object)
 		 */
-		public void releaseTarget(Object target) throws Exception {}
+		public void releaseTarget(Object target) throws Exception {
+		}
 
 		private Collection<Object> getBeansOfTypeExcept(Class<?> type, Collection<Class<?>> exceptions) {
 
 			return Arrays.stream(context.getBeanNamesForType(type, false, eagerInit)) //
-					.filter(it -> !exceptions.contains(context.getType(it))) //
-					.map(it -> context.getBean(it)) //
-					.collect(Collectors.toList());
+		.filter(it -> !exceptions.contains(context.getType(it))) //
+		.map(it -> context.getBean(it)) //
+		.collect(Collectors.toList());
 		}
 	}
 }

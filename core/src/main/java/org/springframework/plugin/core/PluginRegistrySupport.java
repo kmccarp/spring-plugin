@@ -76,8 +76,8 @@ public abstract class PluginRegistrySupport<T extends Plugin<S>, S> implements P
 		Assert.notNull(plugins, "Plugins must not be null!");
 
 		return plugins.stream() //
-				.filter(it -> it != null) //
-				.collect(Collectors.toList());
+	.filter(it -> it != null) //
+	.collect(Collectors.toList());
 	}
 
 	/*

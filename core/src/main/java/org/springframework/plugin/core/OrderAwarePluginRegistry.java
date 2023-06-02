@@ -132,7 +132,7 @@ public class OrderAwarePluginRegistry<T extends Plugin<S>, S> extends SimplePlug
 	 * @since 2.0
 	 */
 	public static <S, T extends Plugin<S>> OrderAwarePluginRegistry<T, S> of(List<? extends T> plugins,
-			Comparator<? super T> comparator) {
+Comparator<? super T> comparator) {
 
 		Assert.notNull(plugins, "Plugins must not be null!");
 		Assert.notNull(comparator, "Comparator must not be null!");
@@ -201,7 +201,7 @@ public class OrderAwarePluginRegistry<T extends Plugin<S>, S> extends SimplePlug
 	 */
 	@Deprecated
 	public static <S, T extends Plugin<S>> OrderAwarePluginRegistry<T, S> create(List<? extends T> plugins,
-			Comparator<? super T> comparator) {
+Comparator<? super T> comparator) {
 
 		return of(plugins, comparator);
 	}

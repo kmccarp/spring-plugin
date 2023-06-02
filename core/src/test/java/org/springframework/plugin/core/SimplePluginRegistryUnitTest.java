@@ -85,7 +85,7 @@ class SimplePluginRegistryUnitTest {
 	void throwsExceptionIfNoPluginFound() {
 
 		assertThatIllegalArgumentException()
-				.isThrownBy(() -> registry.getPluginFor("BAR", () -> new IllegalArgumentException()));
+	.isThrownBy(() -> registry.getPluginFor("BAR", () -> new IllegalArgumentException()));
 	}
 
 	/**
@@ -95,7 +95,7 @@ class SimplePluginRegistryUnitTest {
 	void throwsExceptionIfNoPluginsFound() {
 
 		assertThatIllegalArgumentException()
-				.isThrownBy(() -> registry.getPluginsFor("BAR", () -> new IllegalArgumentException()));
+	.isThrownBy(() -> registry.getPluginsFor("BAR", () -> new IllegalArgumentException()));
 	}
 
 	/**
@@ -138,7 +138,7 @@ class SimplePluginRegistryUnitTest {
 		registry = SimplePluginRegistry.empty();
 
 		assertThatIllegalStateException()
-				.isThrownBy(() -> registry.getPluginFor("FOO", () -> new IllegalStateException()));
+	.isThrownBy(() -> registry.getPluginFor("FOO", () -> new IllegalStateException()));
 	}
 
 	@Test // #41
@@ -147,7 +147,7 @@ class SimplePluginRegistryUnitTest {
 		registry = SimplePluginRegistry.empty();
 
 		assertThatIllegalArgumentException()
-				.isThrownBy(() -> registry.getRequiredPluginFor("FOO"));
+	.isThrownBy(() -> registry.getRequiredPluginFor("FOO"));
 	}
 
 	@Test // #41
@@ -156,7 +156,7 @@ class SimplePluginRegistryUnitTest {
 		registry = SimplePluginRegistry.of(Collections.emptyList());
 
 		assertThatIllegalArgumentException()
-				.isThrownBy(() -> registry.getRequiredPluginFor("FOO", () -> "message"))
-				.withMessage("message");
+	.isThrownBy(() -> registry.getRequiredPluginFor("FOO", () -> "message"))
+	.withMessage("message");
 	}
 }

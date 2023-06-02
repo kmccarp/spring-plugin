@@ -78,7 +78,7 @@ public class SimplePluginRegistry<T extends Plugin<S>, S> extends PluginRegistry
 	 */
 	@Deprecated
 	public static <S, T extends Plugin<S>> SimplePluginRegistry<T, S> create() {
-		return of(Collections.<T> emptyList());
+		return of(Collections.<T>emptyList());
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class SimplePluginRegistry<T extends Plugin<S>, S> extends PluginRegistry
 		return new SimplePluginRegistry<>(plugins);
 	}
 
-	/* (non-Javadoc)
+	/*(non-Javadoc)
 	 * @see org.springframework.plugin.core.PluginRegistrySupport#getPlugins()
 	 */
 	@Override
@@ -110,8 +110,8 @@ public class SimplePluginRegistry<T extends Plugin<S>, S> extends PluginRegistry
 		Assert.notNull(delimiter, "Delimiter must not be null!");
 
 		return super.getPlugins().stream()//
-				.filter(it -> it.supports(delimiter))//
-				.findFirst();
+	.filter(it -> it.supports(delimiter))//
+	.findFirst();
 	}
 
 	/*
@@ -124,7 +124,7 @@ public class SimplePluginRegistry<T extends Plugin<S>, S> extends PluginRegistry
 		Assert.notNull(delimiter, "Delimiter must not be null!");
 
 		return getRequiredPluginFor(delimiter,
-				() -> String.format("No plugin found for delimiter %s! Registered plugins: %s.", delimiter, getPlugins()));
+	() -> String.format("No plugin found for delimiter %s! Registered plugins: %s.", delimiter, getPlugins()));
 	}
 
 	/*
@@ -150,8 +150,8 @@ public class SimplePluginRegistry<T extends Plugin<S>, S> extends PluginRegistry
 		Assert.notNull(delimiter, "Delimiter must not be null!");
 
 		return super.getPlugins().stream()//
-				.filter(it -> it.supports(delimiter))//
-				.collect(Collectors.toList());
+	.filter(it -> it.supports(delimiter))//
+	.collect(Collectors.toList());
 	}
 
 	/*
